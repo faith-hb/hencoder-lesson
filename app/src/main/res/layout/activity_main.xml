@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--<hencoderder.widget.DashBoard-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+    <!--<hencoderder.widget.PieChart-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+    <!--<hencoderder.widget.AvatarView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+    <!--<hencoderder.widget.ImageTextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+    <!--<hencoderder.widget.lesson2.SportView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+    <!--<hencoderder.widget.ImageTextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+    <!--<hencoderder.widget.lesson2.CameraView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+    <!--<hencoderder.widget.lesson3.FlipboardView-->
+        <!--android:id="@+id/objectAnimatorView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"/>-->
+
+    <!--<hencoderder.widget.lesson3.CameraView-->
+        <!--android:id="@+id/objectAnimatorView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+    <!--<hencoderder.widget.lesson4.MaterialEditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="User name"/>-->
+
+    <!--<hencoderder.widget.lesson5.SquareImageView-->
+        <!--android:layout_width="300dp"-->
+        <!--android:layout_height="200dp"/>-->
+
+    <!--<hencoderder.widget.lesson7.ScalebleImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"/>-->
+
+    <!--<hencoderder.widget.lesson8.MultiTouchView1-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+    <com.hencoder.widget.lesson8.MultiTouchView2
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!--<hencoderder.widget.test.TestCanvasView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"/>-->
+</FrameLayout>
