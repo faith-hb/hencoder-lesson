@@ -16,6 +16,7 @@ public class HotFixApplication extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+        System.out.println("***：attachBaseContext");
         apk = new File(getCacheDir() + "/32_hotfix-debug.apk");
 //        apk = new File("/data/data/com.hencoder.hotfix/cache/32_hotfix-debug.apk");
         if (apk.exists()) {

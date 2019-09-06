@@ -31,9 +31,10 @@ public class MainActivity extends AppCompatActivity {
         showTitleBt = findViewById(R.id.showTitleBt);
         hotfixBt = findViewById(R.id.hotfixBt);
 
-        // /data/user/0/com.hencoder.hotfix/cache/32_hotfix-debug.apk
-        apk = new File(getCacheDir() + "/32_hotfix-debug.apk");  // 由于getCacheDir()拿到的文件目录是上面那个，但实际文件目录是当前行这个，所以此处把文件目录写死，确保能正确读取文件
-//        apk = new File("/data/data/com.hencoder.hotfix/cache" + "/32_hotfix-debug.apk");
+        // getCacheDir() = /data/user/0/com.hencoder.hotfix/cache
+        apk = new File(getCacheDir() + "/32_hotfix-debug.apk");
+//        apk = new File("/data/data/com.hencoder.hotfix/cache/32_hotfix-debug.apk");
+        // 上面两个apk文件目录都可以，本项目采用第一个
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
