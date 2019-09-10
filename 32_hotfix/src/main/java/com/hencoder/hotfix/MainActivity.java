@@ -1,5 +1,6 @@
 package com.hencoder.hotfix;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,17 +20,28 @@ public class MainActivity extends AppCompatActivity {
     TextView titleTv;
     Button showTitleBt;
     Button hotfixBt;
+    Button removeHotfixBt;
+    Button killSelfBt;
 
     File apk;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(newBase);
+        System.out.println("attachBaseContext...");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        System.out.println("onCreate...");
 
         titleTv = findViewById(R.id.titleTv);
         showTitleBt = findViewById(R.id.showTitleBt);
         hotfixBt = findViewById(R.id.hotfixBt);
+        removeHotfixBt = findViewById(R.id.removeHotfixBt);
+        killSelfBt = findViewById(R.id.killSelfBt);
 
         // getCacheDir() = /data/user/0/com.hencoder.hotfix/cache
         apk = new File(getCacheDir() + "/32_hotfix-debug.apk");
@@ -53,85 +65,14 @@ public class MainActivity extends AppCompatActivity {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-
-//                        try (Source source = Okio.source(getAssets().open("apk/hotfix.dex"));
-//                             BufferedSink sink = Okio.buffer(Okio.sink(apk))){
-//                            sink.writeAll(source);
-//                        } catch (FileNotFoundException e) {
-//                            e.printStackTrace();
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
-//                        try {
-//                            ClassLoader classLoader = getClassLoader();
-//                            Class loaderClass = BaseDexClassLoader.class;
-//                            Field pathListField = loaderClass.getDeclaredField("pathList");
-//                            pathListField.setAccessible(true);
-//
-//                            Object pathListObject = pathListField.get(classLoader);
-//                            Class pathListClass = pathListObject.getClass();
-//
-//                            Field dexElementsField = pathListClass.getDeclaredField("dexElements");
-//                            dexElementsField.setAccessible(true);
-//
-//                            Object dexElementsObject = dexElementsField.get(pathListObject);
-//
-//                            PathClassLoader newClassLoader = new PathClassLoader(apk.getPath(), null);
-//                            Object newPathListObject = pathListField.get(newClassLoader);
-//                            Object newDexElementsObject = dexElementsField.get(newPathListObject);
-//
-////                            int oldLength = Array.getLength(dexElementsObject);
-//
-//                            dexElementsField.set(pathListObject, newDexElementsObject);
-//
-//
-//                        } catch (NoSuchFieldException e) {
-//                            e.printStackTrace();
-//                        } catch (IllegalArgumentException e) {
-//                            e.printStackTrace();
-//                        } catch (IllegalAccessException e) {
-//                            e.printStackTrace();
-//                        }
-
-//                        try {
-//                            ClassLoader classLoader = getClassLoader();
-//                            Class loaderClass = BaseDexClassLoader.class;
-//                            Field pathListField = loaderClass.getDeclaredField("pathList");
-//                            pathListField.setAccessible(true);
-//                            Object pathListObject = pathListField.get(classLoader); // getClassLoader().pathList
-//                            System.out.println("pathListObject：" + pathListObject);
-//                            Class pathListClass = pathListObject.getClass();
-//                            Field dexElementsField = pathListClass.getDeclaredField("dexElements");
-//                            dexElementsField.setAccessible(true);
-//                            Object dexElementsObject = dexElementsField.get(pathListObject); // getClassLoader().pathList.dexElements
-//
-//                            // classLoader.pathList.dexElements = ???;
-////                            System.out.println("apk path：" + apk.getPath());
-//                            PathClassLoader newClassLoader = new PathClassLoader(apk.getPath(), null);
-//                            Object newPathListObject = pathListField.get(newClassLoader); // newClassLoader.pathList
-//                            System.out.println("newPathListObject：" + newPathListObject);
-//                            Object newDexElementsObject = dexElementsField.get(newPathListObject); // newClassLoader.pathList.dexElements
-//                            System.out.println("newDexElementsObject：" + newDexElementsObject);
-//
-//                            dexElementsField.set(pathListObject, newDexElementsObject);
-//
-////                            int oldLength = Array.getLength(dexElementsObject);
-////                            int newLength = Array.getLength(newDexElementsObject);
-////                            Object concatDexElementsObject = Array.newInstance(dexElementsObject.getClass().getComponentType(), oldLength + newLength);
-////                            for (int i = 0; i < newLength; i++) {
-////                                Array.set(concatDexElementsObject, i, Array.get(newDexElementsObject, i));
-////                            }
-////                            for (int i = 0; i < oldLength; i++) {
-////                                Array.set(concatDexElementsObject, newLength + i, Array.get(dexElementsObject, i));
-////                            }
-////
-////                            dexElementsField.set(pathListObject, concatDexElementsObject);
-//                        } catch (NoSuchFieldException e) {
-//                            e.printStackTrace();
-//                        } catch (IllegalAccessException e) {
-//                            e.printStackTrace();
-//                        }
-
+                        break;
+                    case R.id.removeHotfixBt:
+                        if(apk.exists()){
+                            apk.delete();
+                        }
+                        break;
+                    case R.id.killSelfBt:
+                        android.os.Process.killProcess(android.os.Process.myPid());
                         break;
                     default:
                         break;
@@ -141,5 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         showTitleBt.setOnClickListener(onClickListener);
         hotfixBt.setOnClickListener(onClickListener);
+        removeHotfixBt.setOnClickListener(onClickListener);
+        killSelfBt.setOnClickListener(onClickListener);
     }
 }
