@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         killSelfBt = findViewById(R.id.killSelfBt);
 
         // getCacheDir() = /data/user/0/com.hencoder.hotfix/cache
-        apk = new File(getCacheDir() + "/32_hotfix-debug.apk");
+        apk = new File(getCacheDir() + "/hotfix.dex");
 //        apk = new File("/data/data/com.hencoder.hotfix/cache/32_hotfix-debug.apk");
         // 上面两个apk文件目录都可以，本项目采用第一个
 
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                         titleTv.setText(title.getTitle());
                         break;
                     case R.id.hotfixBt:
-                        try (Source source = Okio.source(getAssets().open("apk/32_hotfix-debug.apk"));
+                        try (Source source = Okio.source(getAssets().open("apk/hotfix.dex"));
                              BufferedSink sink = Okio.buffer(Okio.sink(apk))) {
                             sink.writeAll(source);
                         } catch (FileNotFoundException e) {
