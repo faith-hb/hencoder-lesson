@@ -1,1 +1,1 @@
-include ':app', ':32_hotfix', ':23_rxjava'
+include ':app', ':32_hotfix', ':23_rxjava', ':33_annotation_processing', ':33_lib_reflection'
